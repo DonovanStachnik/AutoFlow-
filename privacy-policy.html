@@ -1,147 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – AutoFlow</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0a0a0a;
-      color: #e2e2e2;
-      line-height: 1.7;
-    }
-    header {
-      padding: 24px 40px;
-      border-bottom: 1px solid #1e1e1e;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    header a {
-      color: #e2e2e2;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: -0.3px;
-    }
-    header a:hover { color: #ffffff; }
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-    }
-    h1 {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-    .updated {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 48px;
-    }
-    h2 {
-      font-size: 20px;
-      font-weight: 600;
-      color: #ffffff;
-      margin: 40px 0 12px;
-    }
-    p { margin-bottom: 16px; color: #c0c0c0; }
-    ul { padding-left: 20px; margin-bottom: 16px; color: #c0c0c0; }
-    ul li { margin-bottom: 8px; }
-    a { color: #7c6fff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer {
-      border-top: 1px solid #1e1e1e;
-      padding: 32px 40px;
-      text-align: center;
-      font-size: 13px;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | AutoFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --pink: #f472b6;
+    --blue: #60a5fa;
+    --green: #34d399;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --heading: #f8fafc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--heading);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--blue); }
+
+  .back-link {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--pink); }
+
+  .hero {
+    padding: 80px 40px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 .accent-blue { color: var(--blue); }
+
+  .meta {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .meta .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  .notice {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 40px;
+  }
+
+  .notice-box {
+    background: rgba(52, 211, 153, 0.05);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-left: 3px solid var(--green);
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .notice-box strong { color: var(--green); }
+
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 40px 80px;
+  }
+
+  .section {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+  }
+
+  .section h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green);
+    margin: 24px 0 10px;
+  }
+
+  .section p {
+    color: #94a3b8;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+
+  .section ul li {
+    color: #94a3b8;
+    font-size: 15px;
+    padding: 6px 0 6px 24px;
+    position: relative;
+  }
+
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .highlight-box.green { border-left: 3px solid var(--green); }
+  .highlight-box.pink { border-left: 3px solid var(--pink); }
+  .highlight-box.blue { border-left: 3px solid var(--blue); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .grid-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+
+  .grid-item h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pink);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .grid-item p {
+    font-size: 13px;
+    margin: 0;
+    color: #64748b;
+  }
+
+  .contact-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  .contact-section p { color: var(--muted); margin-bottom: 20px; }
+
+  .contact-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link.blue {
+    background: rgba(96, 165, 250, 0.1);
+    color: var(--blue);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+
+  .contact-link.green {
+    background: rgba(52, 211, 153, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+  }
+
+  .contact-link:hover { transform: translateY(-1px); filter: brightness(1.2); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--blue); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .topbar, .hero, .notice, .content { padding-left: 20px; padding-right: 20px; }
+    .hero { padding-top: 48px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <a href="#">AutoFlow</a>
-</header>
+<nav class="topbar">
+  <a href="https://autoflow.llc" class="logo">Auto<span>Flow</span></a>
+  <a href="https://autoflow.llc" class="back-link">← Back to AutoFlow</a>
+</nav>
 
-<div class="container">
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: March 19, 2026</p>
+<div class="hero">
+  <div class="badge">Privacy</div>
+  <h1>Privacy <span class="accent-blue">Policy</span></h1>
+  <div class="meta">
+    <span><span class="dot"></span>Effective March 11, 2026</span>
+    <span>Last Updated: March 11, 2026</span>
+    <span>AutoFlow LLC · Michigan, USA</span>
+  </div>
+</div>
 
-  <h2>1. Introduction</h2>
-  <p>AutoFlow ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service.</p>
+<div class="notice">
+  <div class="notice-box">
+    <strong>Your Privacy Matters —</strong> This Privacy Policy describes how AutoFlow collects, uses, discloses, and safeguards your information. By using our Services, you consent to the practices described in this policy. This Privacy Policy is incorporated into our <a href="https://autoflow.llc/terms-of-service.html" style="color: var(--blue);">Terms of Service</a>.
+  </div>
+</div>
 
-  <h2>2. Information We Collect</h2>
-  <p>We may collect the following types of information:</p>
-  <ul>
-    <li><strong style="color:#e2e2e2">Account Information:</strong> Name, email address, and password when you register</li>
-    <li><strong style="color:#e2e2e2">Usage Data:</strong> Information about how you interact with the Service, including features used and actions taken</li>
-    <li><strong style="color:#e2e2e2">Device Information:</strong> IP address, browser type, operating system, and device identifiers</li>
-    <li><strong style="color:#e2e2e2">Payment Information:</strong> Billing details processed securely through our payment provider (we do not store full card numbers)</li>
-    <li><strong style="color:#e2e2e2">Communications:</strong> Messages you send us via email or support channels</li>
-  </ul>
+<div class="content">
 
-  <h2>3. How We Use Your Information</h2>
-  <p>We use the information we collect to:</p>
-  <ul>
-    <li>Provide, operate, and maintain the Service</li>
-    <li>Process transactions and send related information</li>
-    <li>Send administrative information such as updates and security alerts</li>
-    <li>Respond to your comments and questions</li>
-    <li>Analyze usage to improve and personalize the Service</li>
-    <li>Comply with legal obligations</li>
-  </ul>
+  <div class="section">
+    <div class="section-number">Section 01</div>
+    <h2>Introduction</h2>
+    <p>AutoFlow ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website (autoflow.llc) and our AI-powered chat agent services (collectively, the "Services").</p>
+    <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Services.</p>
+  </div>
 
-  <h2>4. Cookies and Tracking Technologies</h2>
-  <p>We use cookies and similar tracking technologies to track activity on the Service and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features of the Service may not function properly without cookies.</p>
+  <div class="section">
+    <div class="section-number">Section 02</div>
+    <h2>Information We Collect</h2>
+    <h3>Personal Information</h3>
+    <p>We may collect the following types of personal information:</p>
+    <div class="grid">
+      <div class="grid-item">
+        <h4>Contact Info</h4>
+        <p>Name, email address, phone number, business name, business address</p>
+      </div>
+      <div class="grid-item">
+        <h4>Account Credentials</h4>
+        <p>Username, password, authentication tokens</p>
+      </div>
+      <div class="grid-item">
+        <h4>Payment Information</h4>
+        <p>Billing address, payment card details (processed by third-party processors)</p>
+      </div>
+      <div class="grid-item">
+        <h4>Business Information</h4>
+        <p>Services offered, pricing, operating hours, booking systems, website URL</p>
+      </div>
+      <div class="grid-item">
+        <h4>Customer Lead Data</h4>
+        <p>Names, contact information, and inquiries collected by your AI chat agent</p>
+      </div>
+      <div class="grid-item">
+        <h4>Auto-Collected Data</h4>
+        <p>IP address, browser type, device info, access times, cookies, analytics</p>
+      </div>
+    </div>
+    <h3>Information from Third Parties</h3>
+    <p>We may receive information from authentication providers (Clerk), payment processors (Stripe), analytics providers, and business partners you authorize.</p>
+  </div>
 
-  <h2>5. Sharing Your Information</h2>
-  <p>We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:</p>
-  <ul>
-    <li><strong style="color:#e2e2e2">Service Providers:</strong> With trusted third parties who assist us in operating the Service (e.g., hosting, analytics, payment processing)</li>
-    <li><strong style="color:#e2e2e2">Legal Requirements:</strong> When required by law or to protect our rights</li>
-    <li><strong style="color:#e2e2e2">Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
-  </ul>
+  <div class="section">
+    <div class="section-number">Section 03</div>
+    <h2>How We Use Your Information</h2>
+    <ul>
+      <li><strong style="color: var(--heading);">Service Delivery</strong> — To provide, maintain, and improve our AI chat agent services</li>
+      <li><strong style="color: var(--heading);">Account Management</strong> — To create and manage your account, process payments</li>
+      <li><strong style="color: var(--heading);">Communication</strong> — To communicate about your account, support requests, and updates</li>
+      <li><strong style="color: var(--heading);">Customization</strong> — To customize AI agent responses based on your business information</li>
+      <li><strong style="color: var(--heading);">Lead Management</strong> — To collect, store, and deliver customer leads to you</li>
+      <li><strong style="color: var(--heading);">Analytics</strong> — To analyze usage patterns and improve service performance</li>
+      <li><strong style="color: var(--heading);">Security</strong> — To detect, prevent, and address fraud, abuse, and security threats</li>
+      <li><strong style="color: var(--heading);">AI Improvement</strong> — We may use anonymized aggregated data to improve our AI models. This data cannot identify you or your customers.</li>
+    </ul>
+  </div>
 
-  <h2>6. Data Retention</h2>
-  <p>We retain your personal information for as long as your account is active or as needed to provide you with the Service. You may request deletion of your data at any time by contacting us.</p>
+  <div class="section">
+    <div class="section-number">Section 04</div>
+    <h2>Data Sharing and Disclosure</h2>
+    <h3>We May Share Information With</h3>
+    <ul>
+      <li>Service providers who provide hosting, AI processing, and payment services on our behalf</li>
+      <li>Third-party platforms you authorize for integration (booking, CRM, messaging)</li>
+      <li>Professional advisors including lawyers and accountants</li>
+      <li>Legal authorities as required by law</li>
+      <li>Business transfer parties in connection with mergers or acquisitions</li>
+    </ul>
+    <div class="highlight-box green">
+      <p style="margin:0; font-size:14px; color:#94a3b8;"><strong style="color: var(--green);">We Do NOT —</strong> Sell your personal information to third parties. Share your customer lead data with other clients. Use your data for advertising without consent.</p>
+    </div>
+  </div>
 
-  <h2>7. Security</h2>
-  <p>We implement industry-standard security measures to protect your information, including encryption in transit and at rest. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+  <div class="section">
+    <div class="section-number">Section 05</div>
+    <h2>Third-Party Service Providers</h2>
+    <p>We use the following third-party services which may have access to your data:</p>
+    <ul>
+      <li><strong style="color: var(--heading);">Stammer AI</strong> — AI chatbot platform, provides AI processing and chat functionality</li>
+      <li><strong style="color: var(--heading);">Supabase</strong> — Database services, stores client configurations and lead data</li>
+      <li><strong style="color: var(--heading);">Clerk</strong> — Authentication services, manages user authentication</li>
+      <li><strong style="color: var(--heading);">Stripe</strong> — Payment processing, handles billing transactions</li>
+      <li><strong style="color: var(--heading);">Google Workspace</strong> — Email services, delivers lead notifications</li>
+      <li><strong style="color: var(--heading);">Cal.com</strong> — Appointment scheduling and calendar integration</li>
+    </ul>
+    <p>Each third party's data practices are governed by their own privacy policies.</p>
+  </div>
 
-  <h2>8. Your Rights</h2>
-  <p>Depending on your location, you may have the following rights regarding your personal data:</p>
-  <ul>
-    <li>Right to access and receive a copy of your data</li>
-    <li>Right to correct inaccurate data</li>
-    <li>Right to request deletion of your data</li>
-    <li>Right to restrict or object to processing</li>
-    <li>Right to data portability</li>
-  </ul>
-  <p>To exercise these rights, please contact us at <a href="mailto:support@autoflow.com">support@autoflow.com</a>.</p>
+  <div class="section">
+    <div class="section-number">Section 06</div>
+    <h2>Data Security</h2>
+    <p>We implement industry-standard security measures including:</p>
+    <ul>
+      <li>Encryption of data in transit and at rest</li>
+      <li>Access controls and authentication requirements</li>
+      <li>Regular security audits and testing</li>
+      <li>Employee training on data protection</li>
+      <li>Incident response procedures</li>
+    </ul>
+    <p>However, no method of electronic transmission or storage is 100% secure. We cannot guarantee absolute security.</p>
+  </div>
 
-  <h2>9. Children's Privacy</h2>
-  <p>The Service is not directed to individuals under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has provided us with personal data, we will take steps to delete such information.</p>
+  <div class="section">
+    <div class="section-number">Section 07</div>
+    <h2>Data Retention</h2>
+    <p>We retain personal information as long as your account is active, needed to provide services, required by legal obligations, or necessary for legitimate business purposes. Customer lead data is retained for as long as your account is active unless you request deletion.</p>
+  </div>
 
-  <h2>10. Third-Party Links</h2>
-  <p>The Service may contain links to third-party websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites.</p>
+  <div class="section">
+    <div class="section-number">Section 08</div>
+    <h2>Your Rights</h2>
+    <p>You have the following rights regarding your personal information:</p>
+    <ul>
+      <li><strong style="color: var(--heading);">Access</strong> — Request a copy of personal data we hold about you</li>
+      <li><strong style="color: var(--heading);">Correction</strong> — Request correction of inaccurate personal data</li>
+      <li><strong style="color: var(--heading);">Deletion</strong> — Request deletion of your personal data (subject to legal requirements)</li>
+      <li><strong style="color: var(--heading);">Portability</strong> — Request your data in a portable, machine-readable format</li>
+      <li><strong style="color: var(--heading);">Opt-Out</strong> — Opt-out of marketing communications at any time</li>
+      <li><strong style="color: var(--heading);">Restriction</strong> — Request restriction of processing</li>
+    </ul>
+    <p>To exercise these rights, contact us at <a href="mailto:info@autoflow.llc" style="color: var(--blue);">info@autoflow.llc</a>.</p>
+  </div>
 
-  <h2>11. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date. Your continued use of the Service after changes constitutes acceptance of the updated policy.</p>
+  <div class="section">
+    <div class="section-number">Section 09</div>
+    <h2>Cookies and Tracking</h2>
+    <p>We use cookies and similar tracking technologies to authenticate users, remember preferences, analyze traffic, and improve our services. You can control cookies through your browser settings. We also respect Global Privacy Control (GPC) and Do Not Sell signals where required by law.</p>
+  </div>
 
-  <h2>12. Contact Us</h2>
-  <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@autoflow.com">support@autoflow.com</a>.</p>
+  <div class="section">
+    <div class="section-number">Section 10</div>
+    <h2>Children's Privacy</h2>
+    <p>Our Services are not intended for individuals under 13 years of age. We do not knowingly collect information from children. If we become aware of such collection, we will delete it promptly.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 11</div>
+    <h2>International Data Transfers</h2>
+    <p>Your information may be transferred to and processed in the United States and other countries. We use appropriate safeguards to protect your data during these transfers.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 12</div>
+    <h2>Data Breach Notification</h2>
+    <p>In the event of a data breach affecting your personal information, we will investigate promptly, notify affected individuals within 72 hours where required, take remedial measures, and report to relevant authorities as required.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 13</div>
+    <h2>Your Customers' Data</h2>
+    <div class="highlight-box blue">
+      <p style="margin:0; font-size:14px; color:#94a3b8; line-height:1.7;"><strong style="color: var(--blue);">Important —</strong> If you use our Services to collect data from your own customers, you are responsible for obtaining necessary consents, providing adequate privacy notices, responding to data subject requests, complying with applicable privacy laws (GDPR, CCPA, etc.), and using the data only for disclosed purposes.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 14</div>
+    <h2>AI and Automated Processing</h2>
+    <p>Our Services use artificial intelligence and machine learning to generate chatbot responses, understand customer inquiries, improve response accuracy over time, and categorize and route leads. AI decisions may not always be accurate. You are responsible for reviewing AI configurations and outputs.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 15</div>
+    <h2>Marketing Communications</h2>
+    <p>We may send you marketing communications about our Services. You can opt-out at any time by clicking "unsubscribe" in emails, contacting us at info@autoflow.llc, or updating your account preferences.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 16</div>
+    <h2>Regulatory Compliance</h2>
+    <p>We take steps to comply with applicable data protection laws including GDPR for EU users, CCPA for California residents, and other applicable state and federal privacy laws. For privacy-related inquiries, contact us at <a href="mailto:info@autoflow.llc" style="color: var(--blue);">info@autoflow.llc</a>.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 17</div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy periodically. We will notify you of material changes via email or website notice. Your continued use after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="contact-section">
+    <h2>Privacy Questions?</h2>
+    <p>Reach out and we'll get back to you promptly.</p>
+    <div class="contact-links">
+      <a href="mailto:info@autoflow.llc" class="contact-link blue">✉ info@autoflow.llc</a>
+      <a href="https://autoflow.llc" class="contact-link green">🌐 autoflow.llc</a>
+    </div>
+  </div>
+
 </div>
 
 <footer>
-  &copy; 2026 AutoFlow. All rights reserved. &nbsp;|&nbsp;
-  <a href="terms-of-service.html">Terms of Service</a>
+  <p>© 2026 AutoFlow. All rights reserved. · <a href="https://autoflow.llc/terms-of-service.html">Terms of Service</a> · <a href="https://autoflow.llc">Back to AutoFlow</a></p>
 </footer>
 
 </body>

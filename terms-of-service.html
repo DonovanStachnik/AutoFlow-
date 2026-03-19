@@ -1,131 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service – AutoFlow</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0a0a0a;
-      color: #e2e2e2;
-      line-height: 1.7;
-    }
-    header {
-      padding: 24px 40px;
-      border-bottom: 1px solid #1e1e1e;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    header a {
-      color: #e2e2e2;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: -0.3px;
-    }
-    header a:hover { color: #ffffff; }
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-    }
-    h1 {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-    .updated {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 48px;
-    }
-    h2 {
-      font-size: 20px;
-      font-weight: 600;
-      color: #ffffff;
-      margin: 40px 0 12px;
-    }
-    p { margin-bottom: 16px; color: #c0c0c0; }
-    ul { padding-left: 20px; margin-bottom: 16px; color: #c0c0c0; }
-    ul li { margin-bottom: 8px; }
-    a { color: #7c6fff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer {
-      border-top: 1px solid #1e1e1e;
-      padding: 32px 40px;
-      text-align: center;
-      font-size: 13px;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | AutoFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --pink: #f472b6;
+    --blue: #60a5fa;
+    --green: #34d399;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --heading: #f8fafc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Top bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--heading);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--pink); }
+
+  .back-link {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--blue); }
+
+  /* Hero */
+  .hero {
+    padding: 80px 40px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pink);
+    background: rgba(244, 114, 182, 0.1);
+    border: 1px solid rgba(244, 114, 182, 0.2);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 .accent-pink { color: var(--pink); }
+  .hero h1 .accent-blue { color: var(--blue); }
+
+  .meta {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .meta .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+  }
+
+  /* Notice box */
+  .notice {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 40px;
+  }
+
+  .notice-box {
+    background: rgba(96, 165, 250, 0.05);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-left: 3px solid var(--blue);
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .notice-box strong { color: var(--blue); }
+
+  /* Main content */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 40px 80px;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child {
+    border-bottom: none;
+  }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+  }
+
+  .section h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue);
+    margin: 24px 0 10px;
+  }
+
+  .section p {
+    color: #94a3b8;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+
+  .section ul li {
+    color: #94a3b8;
+    font-size: 15px;
+    padding: 6px 0 6px 24px;
+    position: relative;
+  }
+
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  /* Warning section */
+  .warning-section h2 { color: var(--pink); }
+  .warning-section .section-number { color: var(--pink); }
+
+  /* Highlight box */
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .highlight-box.pink { border-left: 3px solid var(--pink); }
+  .highlight-box.green { border-left: 3px solid var(--green); }
+
+  /* Contact section */
+  .contact-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  .contact-section p {
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link.pink {
+    background: rgba(244, 114, 182, 0.1);
+    color: var(--pink);
+    border: 1px solid rgba(244, 114, 182, 0.2);
+  }
+
+  .contact-link.blue {
+    background: rgba(96, 165, 250, 0.1);
+    color: var(--blue);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+
+  .contact-link:hover { transform: translateY(-1px); filter: brightness(1.2); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--blue); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .topbar, .hero, .notice, .content { padding-left: 20px; padding-right: 20px; }
+    .hero { padding-top: 48px; }
+    .meta { gap: 12px; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <a href="#">AutoFlow</a>
-</header>
+<nav class="topbar">
+  <a href="https://autoflow.llc" class="logo">Auto<span>Flow</span></a>
+  <a href="https://autoflow.llc" class="back-link">← Back to AutoFlow</a>
+</nav>
 
-<div class="container">
-  <h1>Terms of Service</h1>
-  <p class="updated">Last updated: March 19, 2026</p>
+<div class="hero">
+  <div class="badge">Legal</div>
+  <h1>Terms of <span class="accent-pink">Service</span></h1>
+  <div class="meta">
+    <span><span class="dot"></span> Effective March 11, 2026</span>
+    <span>Last Updated: March 11, 2026</span>
+    <span>AutoFlow LLC · Michigan, USA</span>
+  </div>
+</div>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By accessing or using AutoFlow ("the Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.</p>
+<div class="notice">
+  <div class="notice-box">
+    <strong>Important Legal Notice —</strong> Please read these Terms carefully. By accessing and using AutoFlow's Services, you agree to be bound by these Terms. If you do not agree, do not use our Services. Our <a href="https://autoflow.llc/privacy-policy.html" style="color: var(--pink);">Privacy Policy</a> is incorporated by reference into these Terms.
+  </div>
+</div>
 
-  <h2>2. Description of Service</h2>
-  <p>AutoFlow provides automation tools and workflow services to help users streamline their processes. We reserve the right to modify, suspend, or discontinue the Service at any time with or without notice.</p>
+<div class="content">
 
-  <h2>3. User Accounts</h2>
-  <p>To access certain features, you may be required to create an account. You are responsible for:</p>
-  <ul>
-    <li>Maintaining the confidentiality of your account credentials</li>
-    <li>All activities that occur under your account</li>
-    <li>Notifying us immediately of any unauthorized use of your account</li>
-  </ul>
+  <div class="section">
+    <div class="section-number">Section 01</div>
+    <h2>Agreement to Terms</h2>
+    <p>By accessing, browsing, or using the AutoFlow website (autoflow.llc), any subdomains, and our AI-powered chat agent services (collectively, the "Services"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service ("Terms"). If you are using the Services on behalf of a business, you represent that you have authority to bind that business to these Terms.</p>
+  </div>
 
-  <h2>4. Acceptable Use</h2>
-  <p>You agree not to use the Service to:</p>
-  <ul>
-    <li>Violate any applicable laws or regulations</li>
-    <li>Transmit any harmful, offensive, or disruptive content</li>
-    <li>Attempt to gain unauthorized access to any part of the Service</li>
-    <li>Interfere with or disrupt the integrity or performance of the Service</li>
-    <li>Reverse engineer, decompile, or disassemble any portion of the Service</li>
-  </ul>
+  <div class="section">
+    <div class="section-number">Section 02</div>
+    <h2>Description of Services</h2>
+    <p>AutoFlow provides artificial intelligence-powered chat agent solutions for local businesses, including but not limited to:</p>
+    <ul>
+      <li>Custom AI chatbot development and deployment</li>
+      <li>Integration with client websites and platforms</li>
+      <li>Lead capture and management systems</li>
+      <li>Business hours configuration and automation</li>
+      <li>Analytics, reporting, and dashboard access</li>
+      <li>Customer support and account management</li>
+      <li>Third-party platform integrations (booking, CRM, messaging, calendar)</li>
+      <li>Multi-language AI agent capabilities</li>
+    </ul>
+  </div>
 
-  <h2>5. Intellectual Property</h2>
-  <p>All content, features, and functionality of the Service are owned by AutoFlow and are protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
+  <div class="section">
+    <div class="section-number">Section 03</div>
+    <h2>Eligibility and Authority</h2>
+    <p>You represent and warrant that:</p>
+    <ul>
+      <li>You are at least 18 years of age and have the legal capacity to enter into binding contracts</li>
+      <li>You have the authority to bind your company or organization if signing on behalf of a business</li>
+      <li>All information you provide is accurate, complete, and current</li>
+      <li>You will maintain the accuracy of your account information</li>
+    </ul>
+  </div>
 
-  <h2>6. Subscription and Billing</h2>
-  <p>Certain features of the Service may require a paid subscription. By subscribing, you agree to pay all applicable fees. Subscriptions automatically renew unless cancelled before the renewal date. Refunds are issued at our sole discretion.</p>
+  <div class="section">
+    <div class="section-number">Section 04</div>
+    <h2>User Accounts and Security</h2>
+    <h3>Account Registration</h3>
+    <p>You may be required to create an account to access certain features. You agree to:</p>
+    <ul>
+      <li>Provide accurate and complete registration information</li>
+      <li>Maintain the security of your account credentials</li>
+      <li>Promptly notify us of any unauthorized access or security breach</li>
+      <li>Accept responsibility for all activities under your account</li>
+    </ul>
+    <h3>Account Termination</h3>
+    <p>We reserve the right to suspend or terminate accounts that violate these Terms, engage in fraudulent or illegal activity, damage or disrupt the Services, or fail to pay fees when due.</p>
+  </div>
 
-  <h2>7. Disclaimer of Warranties</h2>
-  <p>The Service is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+  <div class="section">
+    <div class="section-number">Section 05</div>
+    <h2>Payment Terms</h2>
+    <h3>Fees and Billing</h3>
+    <p>All service fees are billed monthly in advance. Subscriptions automatically renew each month unless canceled before the renewal date. Setup fees, if any, are charged upon enrollment. All fees are non-refundable unless explicitly stated otherwise.</p>
+    <div class="highlight-box green">
+      <p style="margin:0; font-size:14px; color:#94a3b8;"><strong style="color: var(--green);">No Payment Until Approval —</strong> AutoFlow does not collect payment until the client has reviewed and approved their AI agent. You only pay once you're satisfied with the demo.</p>
+    </div>
+    <h3>Payment Processing</h3>
+    <p>Payments are processed through Stripe. By providing payment information, you authorize us to charge applicable fees to your payment method.</p>
+    <h3>Price Changes</h3>
+    <p>We reserve the right to modify pricing with thirty (30) days' written notice. Existing clients' rates remain locked for sixty (60) days following any price increase.</p>
+    <h3>Late Payments</h3>
+    <p>If payment is not received on the due date, AutoFlow may immediately suspend or terminate the Services. You are responsible for all collection costs, including attorney fees.</p>
+  </div>
 
-  <h2>8. Limitation of Liability</h2>
-  <p>To the fullest extent permitted by law, AutoFlow shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the Service.</p>
+  <div class="section">
+    <div class="section-number">Section 06</div>
+    <h2>Service Level and Availability</h2>
+    <p>We strive to maintain 99.9% uptime but do not guarantee uninterrupted service. The Services depend on third-party infrastructure which may experience outages. We reserve the right to perform scheduled maintenance with reasonable advance notice.</p>
+  </div>
 
-  <h2>9. Termination</h2>
-  <p>We reserve the right to terminate or suspend your account and access to the Service at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.</p>
+  <div class="section">
+    <div class="section-number">Section 07</div>
+    <h2>Intellectual Property</h2>
+    <h3>Our Property</h3>
+    <p>All rights, title, and interest in the AutoFlow Services — including patents, copyrights, trademarks, trade secrets, source code, and algorithms — remain our exclusive property.</p>
+    <h3>Client Data</h3>
+    <p>You retain all rights to your business data and customer information. By using our Services, you grant us a limited license to process your data solely for providing the Services. We may use anonymized aggregated data to improve our AI models, provided it cannot identify you or your customers.</p>
+    <h3>AI-Generated Content</h3>
+    <p>Responses generated by AI agents may be inaccurate, incomplete, or inappropriate. We do not guarantee the accuracy or legality of AI-generated content. You are responsible for reviewing and approving all AI configurations before deployment.</p>
+  </div>
 
-  <h2>10. Governing Law</h2>
-  <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.</p>
+  <div class="section">
+    <div class="section-number">Section 08</div>
+    <h2>Acceptable Use</h2>
+    <p>You agree NOT to use the Services to:</p>
+    <ul>
+      <li>Generate harmful, illegal, defamatory, or misleading content</li>
+      <li>Violate any laws, regulations, or third-party rights</li>
+      <li>Attempt to reverse engineer or copy our technology</li>
+      <li>Interfere with or disrupt the Services or servers</li>
+      <li>Transmit viruses, malware, or malicious code</li>
+      <li>Engage in fraudulent activity or impersonate others</li>
+      <li>Collect personal data about others without consent</li>
+      <li>Send spam, phishing, or unsolicited communications</li>
+    </ul>
+    <p>You are responsible for ensuring your AI agents comply with TCPA, CAN-SPAM, and all applicable communications laws. Violations may result in immediate account termination without refund.</p>
+  </div>
 
-  <h2>11. Changes to Terms</h2>
-  <p>We may update these Terms from time to time. We will notify you of any changes by posting the new Terms on this page and updating the "Last updated" date. Your continued use of the Service after changes constitutes acceptance of the new Terms.</p>
+  <div class="section">
+    <div class="section-number">Section 09</div>
+    <h2>Third-Party Services</h2>
+    <p>Our Services integrate with third-party platforms including Stammer AI, Supabase, Clerk, Stripe, Google Workspace, and various calendar, booking, CRM, and messaging platforms. We are not responsible for third-party services' practices, policies, or performance.</p>
+  </div>
 
-  <h2>12. Contact Us</h2>
-  <p>If you have any questions about these Terms, please contact us at <a href="mailto:support@autoflow.com">support@autoflow.com</a>.</p>
+  <div class="section warning-section">
+    <div class="section-number">Section 10</div>
+    <h2>Limitation of Liability</h2>
+    <div class="highlight-box pink">
+      <p style="margin:0; font-size:13px; color:#94a3b8; line-height:1.7;">TO THE MAXIMUM EXTENT PERMITTED BY LAW: THE SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTIES. WE DO NOT GUARANTEE SPECIFIC RESULTS OR BUSINESS OUTCOMES. WE SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE TOTAL FEES YOU PAID IN THE THREE (3) MONTHS PRECEDING THE CLAIM.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 11</div>
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify and hold harmless AutoFlow, its officers, directors, employees, agents, and affiliates from any claims, damages, losses, liabilities, costs, or expenses arising from your use of the Services, your Client Data, your business practices, violations of these Terms, or claims from your customers related to the Services.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 12</div>
+    <h2>Disclaimers</h2>
+    <ul>
+      <li>AI-generated content may be inaccurate, biased, or inappropriate</li>
+      <li>We do not guarantee customer acquisition or revenue increases</li>
+      <li>Service availability is not guaranteed</li>
+      <li>Third-party integrations may fail or change without notice</li>
+      <li>You are responsible for compliance with applicable laws in your jurisdiction</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 13</div>
+    <h2>Force Majeure</h2>
+    <p>We are not liable for failures or delays caused by circumstances beyond our reasonable control, including natural disasters, war, cyber attacks, AI provider outages, infrastructure failures, or third-party service provider failures.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 14</div>
+    <h2>Termination</h2>
+    <h3>Termination by You</h3>
+    <p>You may cancel your subscription at any time through your account dashboard or by contacting support. No refunds will be provided for the current billing period upon cancellation.</p>
+    <h3>Termination by Us</h3>
+    <p>We may suspend or terminate your account immediately if you violate these Terms, fail to pay fees, or if your use creates legal liability. If we discontinue the Services entirely, we will provide thirty (30) days' written notice.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 15</div>
+    <h2>Dispute Resolution</h2>
+    <h3>Arbitration Agreement</h3>
+    <p>Any disputes arising from these Terms shall be resolved through binding arbitration in the State of Michigan, USA, in accordance with the American Arbitration Association's Commercial Arbitration Rules, conducted by a single arbitrator.</p>
+    <h3>Class Action Waiver</h3>
+    <p>You agree that any arbitration shall be conducted on an individual basis only. You waive any right to participate in class actions or representative actions.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Section 16</div>
+    <h2>Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Michigan, USA, without regard to conflict of law principles.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Sections 17–23</div>
+    <h2>Additional Provisions</h2>
+    <h3>Privacy and Data Protection</h3>
+    <p>Your privacy is governed by our Privacy Policy, incorporated into these Terms by reference.</p>
+    <h3>Confidentiality</h3>
+    <p>You agree to maintain the confidentiality of any proprietary information disclosed by AutoFlow, including pricing, business methods, technology, and trade secrets.</p>
+    <h3>Modifications to Terms</h3>
+    <p>We reserve the right to modify these Terms at any time. Material changes will be communicated via email or website notice. Continued use after changes constitutes acceptance.</p>
+    <h3>Severability</h3>
+    <p>If any provision of these Terms is found unenforceable, the remaining provisions shall remain in full force and effect.</p>
+    <h3>Entire Agreement</h3>
+    <p>These Terms, together with our Privacy Policy and any other referenced agreements, constitute the entire agreement between you and AutoFlow regarding the Services.</p>
+    <h3>Survival</h3>
+    <p>Provisions regarding intellectual property, limitation of liability, indemnification, dispute resolution, and confidentiality shall survive termination.</p>
+  </div>
+
+  <div class="contact-section">
+    <h2>Questions about these Terms?</h2>
+    <p>We're happy to help clarify anything.</p>
+    <div class="contact-links">
+      <a href="mailto:info@autoflow.llc" class="contact-link pink">✉ info@autoflow.llc</a>
+      <a href="https://autoflow.llc" class="contact-link blue">🌐 autoflow.llc</a>
+    </div>
+  </div>
+
 </div>
 
 <footer>
-  &copy; 2026 AutoFlow. All rights reserved. &nbsp;|&nbsp;
-  <a href="privacy-policy.html">Privacy Policy</a>
+  <p>© 2026 AutoFlow. All rights reserved. · <a href="https://autoflow.llc/privacy-policy.html">Privacy Policy</a> · <a href="https://autoflow.llc">Back to AutoFlow</a></p>
 </footer>
 
 </body>
